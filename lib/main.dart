@@ -26,6 +26,7 @@ class BooklyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        brightness: Brightness.dark,
         scaffoldBackgroundColor: kPrimaryColor,
         useMaterial3: true,
       ),
