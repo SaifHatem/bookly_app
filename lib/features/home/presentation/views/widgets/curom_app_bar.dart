@@ -12,7 +12,6 @@ class CutomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: 24.0,
         vertical: 40,
       ),
       child: Row(
