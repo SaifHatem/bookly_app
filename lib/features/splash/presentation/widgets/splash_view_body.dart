@@ -1,4 +1,4 @@
-import 'package:bookly_app/core/utils/assets.dart';
+import 'package:bookly_app/features/splash/presentation/widgets/fade_animation.dart';
 import 'package:bookly_app/features/splash/presentation/widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
 
@@ -13,18 +13,22 @@ class _SplashViewBodyState extends State<SplashViewBody>
     with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<Offset> slidingAnimation;
+  late Animation<double> fadeAnimation;
 
   @override
   void initState() {
     super.initState();
     animationController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 1),
+      duration: const Duration(seconds: 2),
     );
 
     slidingAnimation =
-        Tween<Offset>(begin: const Offset(0, 10), end: Offset.zero)
+        Tween<Offset>(begin: const Offset(0, 20), end: Offset.zero)
             .animate(animationController);
+
+    fadeAnimation =
+        Tween<double>(begin: 0.0, end: 1).animate(animationController);
 
     animationController.forward();
   }
@@ -41,7 +45,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Image.asset(AssetsData.logo),
+        AnimatedLogo(fadeAnimation: fadeAnimation),
         SlidingText(slidingAnimation: slidingAnimation),
       ],
     );
