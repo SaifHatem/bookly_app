@@ -3,22 +3,19 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/assets.dart';
 
 class CustomListViewItem extends StatelessWidget {
-  const CustomListViewItem({super.key});
+  const CustomListViewItem.FeaturedListViewItem({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * .3,
-      child: AspectRatio(
-        aspectRatio: 2.7 / 4,
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.red,
-            borderRadius: BorderRadius.circular(12),
-            image: const DecorationImage(
-              image: AssetImage(AssetsData.testImage),
-              fit: BoxFit.fill,
-            ),
+    return AspectRatio(
+      aspectRatio: 2.7 / 4,
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.red,
+          borderRadius: BorderRadius.circular(12),
+          image: const DecorationImage(
+            image: AssetImage(AssetsData.testImage),
+            fit: BoxFit.fill,
           ),
         ),
       ),
