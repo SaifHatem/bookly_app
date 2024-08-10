@@ -19,7 +19,7 @@ abstract class Styles {
     fontWeight: FontWeight.normal,
   );
   static const font30SNormal = TextStyle(
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: FontWeight.normal,
     fontFamily: kFontFAmily,
   );
