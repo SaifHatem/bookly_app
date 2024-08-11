@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/book_details_list_view.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_bool_details_view_app_bar.dart';
@@ -18,7 +19,7 @@ class BookDetailsViewBody extends StatelessWidget {
           child: CustomBookDetailsViewAppBar(),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: width * .25),
+          padding: EdgeInsets.symmetric(horizontal: width * .3),
           child: const CustomBookImage(),
         ),
         const SizedBox(
@@ -55,6 +56,26 @@ class BookDetailsViewBody extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 40.0),
           child: CustomButtonsActions(),
         ),
+        const SizedBox(
+          height: 50,
+        ),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            child: Text(
+              'You can also like',
+              textAlign: TextAlign.start,
+              style: Styles.font14Normal.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        const BookDetailsListView(),
       ],
     );
   }
