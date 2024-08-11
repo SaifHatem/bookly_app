@@ -12,70 +12,80 @@ class BookDetailsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    return Column(
-      children: [
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30.0),
-          child: CustomBookDetailsViewAppBar(),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: width * .3),
-          child: const CustomBookImage(),
-        ),
-        const SizedBox(
-          height: 43,
-        ),
-        Text(
-          "The Jungle Book",
-          style: Styles.font30SNormal.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const SizedBox(
-          height: 6,
-        ),
-        Opacity(
-          opacity: .7,
-          child: Text(
-            "The Jungle Book",
-            style: Styles.font18Semibold.copyWith(
-              fontStyle: FontStyle.italic,
-            ),
-          ),
-        ),
-        const SizedBox(
-          height: 18,
-        ),
-        const BookRating(
-          mainAxisAlignment: MainAxisAlignment.center,
-        ),
-        const SizedBox(
-          height: 37,
-        ),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 40.0),
-          child: CustomButtonsActions(),
-        ),
-        const SizedBox(
-          height: 50,
-        ),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0),
-            child: Text(
-              'You can also like',
-              textAlign: TextAlign.start,
-              style: Styles.font14Normal.copyWith(
-                fontWeight: FontWeight.w600,
+
+    return CustomScrollView(
+      slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Column(
+            children: [
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30.0),
+                child: CustomBookDetailsViewAppBar(),
               ),
-            ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: width * .3),
+                child: const CustomBookImage(),
+              ),
+              const SizedBox(
+                height: 43,
+              ),
+              Text(
+                "The Jungle Book",
+                style: Styles.font30SNormal.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 6,
+              ),
+              Opacity(
+                opacity: .7,
+                child: Text(
+                  "The Jungle Book",
+                  style: Styles.font18Semibold.copyWith(
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 18,
+              ),
+              const BookRating(
+                mainAxisAlignment: MainAxisAlignment.center,
+              ),
+              const SizedBox(
+                height: 37,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 40.0),
+                child: CustomButtonsActions(),
+              ),
+              const Expanded(
+                child: SizedBox(
+                  height: 50,
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                  child: Text(
+                    'You can also like',
+                    textAlign: TextAlign.start,
+                    style: Styles.font14Normal.copyWith(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              const BookDetailsListView(),
+            ],
           ),
         ),
-        const SizedBox(
-          height: 16,
-        ),
-        const BookDetailsListView(),
       ],
     );
   }
