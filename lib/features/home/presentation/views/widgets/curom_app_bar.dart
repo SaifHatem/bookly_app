@@ -1,5 +1,7 @@
+import 'package:bookly_app/core/utils/app_routers.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/assets.dart';
 
@@ -22,7 +24,9 @@ class CutomAppBar extends StatelessWidget {
             height: 20,
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).push(AppRouters.kSearchView);
+            },
             icon: const Icon(
               FontAwesomeIcons.magnifyingGlass,
               size: 28,
