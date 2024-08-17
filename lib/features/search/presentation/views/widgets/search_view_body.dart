@@ -1,6 +1,8 @@
+import 'package:bookly_app/features/search/presentation/manager/cubit/search_cubit.dart';
 import 'package:bookly_app/features/search/presentation/views/widgets/custom_search_text_field.dart';
 import 'package:bookly_app/features/search/presentation/views/widgets/search_result_listview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/styles.dart';
 
@@ -21,9 +23,14 @@ class SearchViewBody extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30.0),
-          child: CustomSearchTextField(),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          child: CustomSearchTextField(
+            onSubmitted: (value) async {
+              var result = BlocProvider.of<SearchCubit>(context)
+                  .fetchSearchResult(category: value);
+            },
+          ),
         ),
         const SizedBox(
           height: 20,
